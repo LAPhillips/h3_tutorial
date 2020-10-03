@@ -23,6 +23,13 @@ public class ValidateISBNTest {
 	}
 	
 	@Test
+	public void ISBN_with_thirteen_numbers_are_also_valid() {
+		ValidateISBN validator = new ValidateISBN();
+		boolean result = validator.checkISBN("9780441013593");
+		assertTrue(result);
+	}
+	
+	@Test
 	public void check_an_invalid_ISBN() {
 		ValidateISBN validator = new ValidateISBN();
 		boolean result = validator.checkISBN("0140449117");
