@@ -7,7 +7,7 @@ import org.junit.Test;
 public class ValidateISBNTest {
 
 	@Test
-	public void check_valid_iSBN() {
+	public void check_valid_ten_digit_iSBN() {
 		ValidateISBN validator = new ValidateISBN();
 		boolean result = validator.checkISBN("0140449116");
 		assertTrue("first value", result);
@@ -16,24 +16,26 @@ public class ValidateISBNTest {
 	}
 	
 	@Test
-	public void ISBN_ending_in_X_are_Valid() {
+	public void Ten_digit_ISBN_ending_in_X_are_Valid() {
 		ValidateISBN validator = new ValidateISBN();
 		boolean result = validator.checkISBN("012000030X");
 		assertTrue(result);
 	}
 	
 	@Test
-	public void ISBN_with_thirteen_numbers_are_also_valid() {
-		ValidateISBN validator = new ValidateISBN();
-		boolean result = validator.checkISBN("9780441013593");
-		assertTrue(result);
-	}
-	
-	@Test
-	public void check_an_invalid_ISBN() {
+	public void check_an_invalid_ten_digit_ISBN() {
 		ValidateISBN validator = new ValidateISBN();
 		boolean result = validator.checkISBN("0140449117");
 		assertFalse(result);
+	}
+	
+	@Test
+	public void ISBN_with_thirteen_numbers_are_also_valid() {
+		ValidateISBN validator = new ValidateISBN();
+		boolean result = validator.checkISBN("9780441013593");
+		assertTrue("first value", result);
+		result = validator.checkISBN("9780593098240");
+		assertTrue("second value", result);
 	}
 	
 	@Test(expected = NumberFormatException.class)

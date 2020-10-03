@@ -7,6 +7,9 @@ public class ValidateISBN {
 		if (isbn.length() == 13) {
 			return true;
 		}
+
+		
+		else {
 		if (isbn.length() != 10) throw new NumberFormatException("ISBN numbers must be 10 digits");
 		int total = 0;
 		for (int i = 0; i < 10; i++) {
@@ -27,6 +30,7 @@ public class ValidateISBN {
 		else {
 			return false;
 		}
+	}
 	}
 
 }
